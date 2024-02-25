@@ -1,0 +1,1 @@
+echo "distance,first_registration,fuel,price,search,title,url,year" > drawer/data.CSV; cat *.csv | grep 'finn.no' >> drawer/data.CSV;

@@ -1,0 +1,79 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "Toyota Corolla Touring Sports",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "scrapy",
+            "args": ["runspider",  "-o", "Toyota Corolla Touring Sports.csv", "-t", "csv", "-a", "min_price=30000", "-a", "search=Toyota Corolla Touring Sports", "downloader/spiders/spider.py"],
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
+            "python": "${workspaceFolder}/.venv/bin/python"
+        },
+        {
+            "name": "kia e-niro",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "scrapy",
+            "args": ["runspider",  "-o", "Kia e-niro.csv", "-t", "csv", "-a", "min_price=30000", "-a", "search=kia e-niro", "downloader/spiders/spider.py"],
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
+            "python": "${workspaceFolder}/.venv/bin/python"
+        },
+        {
+            "name": "Passat GTE",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "scrapy",
+            "args": ["runspider",  "-o", "Passat GTE.csv", "-t", "csv", "-a", "min_price=30000", "-a", "search=Passat GTE", "downloader/spiders/spider.py"],
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
+            "python": "${workspaceFolder}/.venv/bin/python"
+        },
+        {
+            "name": "Passat",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "scrapy",
+            "args": ["runspider",  "-o", "Passat.csv", "-t", "csv", "-a", "min_price=30000", "-a", "search=Passat", "downloader/spiders/spider.py"],
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
+            "python": "${workspaceFolder}/.venv/bin/python"
+        },
+        {
+            "name": "Hyundai Kona",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "scrapy",
+            "args": ["runspider",  "-o", "Hyundai Kona.csv", "-t", "csv", "-a", "min_price=30000", "-a", "search=Hyundai Kona", "downloader/spiders/spider.py"],
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
+            "python": "${workspaceFolder}/.venv/bin/python"
+        },
+        {
+            "name": "Suzuki S-Cross",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "scrapy",
+            "args": ["runspider",  "-o", "Suzuki S-Cross.csv", "-t", "csv", "-a", "min_price=30000", "-a", "search=Suzuki S-Cross", "downloader/spiders/spider.py"],
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
+            "python": "${workspaceFolder}/.venv/bin/python"
+        },
+        {
+            "name": "Mazda CX-30",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "scrapy",
+            "args": ["runspider",  "-o", "Mazda CX-30.csv", "-t", "csv", "-a", "min_price=30000", "-a", "search=Mazda CX-30", "downloader/spiders/spider.py"],
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
+            "python": "${workspaceFolder}/.venv/bin/python"
+        }
+    ]
+}

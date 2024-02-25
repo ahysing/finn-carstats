@@ -1,0 +1,18 @@
+title = title_element.css('::text').get()
+                    title = unicodedata.normalize('NFKD', title)
+
+                    year_distance_price = item.css('div.mb-8.flex.justify-between.whitespace-nowrap')
+
+                    year = year_distance_price.css('span:nth-child(1)::text').get()
+                    year = unicodedata.normalize('NFKD', year)
+                    year = re.sub(r"\s+", "", year, flags=re.UNICODE)
+
+                    distance = year_distance_price.css('span:nth-child(2)::text').get()
+                    distance = unicodedata.normalize('NFKD', distance)
+                    distance = re.sub(r"\s+", "", distance, flags=re.UNICODE)
+
+                    price = year_distance_price.css('span:nth-child(3)::text').get()
+                    price = unicodedata.normalize('NFKD', price)
+                    price = re.sub(r"\s+", "", price, flags=re.UNICODE)
+
+#                    yield FinnAd(title=title, year=year, distance=distance, price=price, url=link, search=self.args.search, first_registration=None)
