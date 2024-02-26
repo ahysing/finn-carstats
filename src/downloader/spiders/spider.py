@@ -134,32 +134,34 @@ class Downloader(scrapy.Spider):
                     area_elem = response.css('.u-mh16::text').extract()
                     areas = [x for x in area_elem if x is not None and re.match("([^,]+, )?\d\d\d\d .+", x)]
                     area = clean_text(areas[0]) if areas else None
-                    first_registration = datetime.datetime.strptime(first_registration, '%d.%m.%Y').strftime('%Y-%m-%d')
+                    if first_registration:
+                        first_registration = datetime.datetime.strptime(first_registration, '%d.%m.%Y').strftime('%Y-%m-%d')
 
-                    year = clean_number(year)
-                    distance = clean_number(distance)
-                    distance = distance.strip('km')
-                    title = clean_text(title)
-                    if sub_title:
-                        title += " " + clean_text(sub_title)
+                        year = clean_number(year)
+                        distance = clean_number(distance)
+                        distance = distance.strip('km')
+                        title = clean_text(title)
+                        if sub_title:
+                            title += " " + clean_text(sub_title)
 
-                    fuel = clean_text(fuel)
+                        fuel = clean_text(fuel)
 
-                    if price_registration is None or "Fritatt" in price_registration:
-                        price = response.xpath('//span[contains(text(), "Totalpris")]/following-sibling::span').css("::text").get()
-                        price = clean_number(price)
-                        price = price.strip('kr')
+                        if price_registration is None or "Fritatt" in price_registration:
+                            price = response.xpath('//span[contains(text(), "Totalpris")]/following-sibling::span').css("::text").get()
+                            price = clean_number(price)
+                            price = price.strip('kr')
+                        else:
+                            price_ex_vat = clean_number(price_ex_vat)
+                            price_ex_vat = price_ex_vat.strip('kr')
+
+                            price_registration = clean_number(price_registration)
+                            price_registration = price_registration.strip('kr')
+
+                            price = int(price_ex_vat) + int(price_registration)
+
+                        yield FinnAd(year=year, distance=distance, price=price, first_registration=first_registration, url=response.url, title=title, search=self.args.search, fuel=fuel, area=area)
                     else:
-                        price_ex_vat = clean_number(price_ex_vat)
-                        price_ex_vat = price_ex_vat.strip('kr')
-
-                        price_registration = clean_number(price_registration)
-                        price_registration = price_registration.strip('kr')
-
-                        price = int(price_ex_vat) + int(price_registration)
-
-                    yield FinnAd(year=year, distance=distance, price=price, first_registration=first_registration, url=response.url, title=title, search=self.args.search, fuel=fuel, area=area)
-
+                        logger.warning(f'Failed to parse {response.url}. this is a new car')
         elif response.status == 404:
             logger.info(f'Found end of pagination')
         elif response.status > 299:
