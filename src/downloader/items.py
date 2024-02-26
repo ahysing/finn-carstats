@@ -15,3 +15,4 @@ class FinnAd(scrapy.Item):
     search = scrapy.Field()
     first_registration = scrapy.Field()
     fuel = scrapy.Field()
+    area = scrapy.Field()

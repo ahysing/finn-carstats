@@ -131,6 +131,9 @@ class Downloader(scrapy.Spider):
                     sub_title = response.xpath('//h1/following-sibling::p').css('::text').get()
 
                     fuel = response.xpath('//div[contains(text(), "Drivstoff")]/following-sibling::div').css("::text").get()
+                    area_elem = response.css('.u-mh16::text').extract()
+                    areas = [x for x in area_elem if x is not None and re.match("([^,]+, )?\d\d\d\d .+", x)]
+                    area = clean_text(areas[0]) if areas else None
                     first_registration = datetime.datetime.strptime(first_registration, '%d.%m.%Y').strftime('%Y-%m-%d')
 
                     year = clean_number(year)
@@ -155,7 +158,7 @@ class Downloader(scrapy.Spider):
 
                         price = int(price_ex_vat) + int(price_registration)
 
-                    yield FinnAd(year=year, distance=distance, price=price, first_registration=first_registration, url=response.url, title=title, search=self.args.search, fuel=fuel)
+                    yield FinnAd(year=year, distance=distance, price=price, first_registration=first_registration, url=response.url, title=title, search=self.args.search, fuel=fuel, area=area)
 
         elif response.status == 404:
             logger.info(f'Found end of pagination')
