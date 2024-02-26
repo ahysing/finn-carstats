@@ -33,15 +33,24 @@ matplotlib-inline==0.1.6
 nest-asyncio==1.6.0
     # via ipykernel
 numpy==1.26.4
-    # via pandas
+    # via
+    #   pandas
+    #   patsy
+    #   scipy
+    #   statsmodels
 packaging==23.2
     # via
     #   ipykernel
     #   plotly
+    #   statsmodels
 pandas==2.2.1
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   statsmodels
 parso==0.8.3
     # via jedi
+patsy==0.5.6
+    # via statsmodels
 pexpect==4.9.0
     # via ipython
 platformdirs==4.2.0
@@ -68,12 +77,17 @@ pyzmq==25.1.2
     # via
     #   ipykernel
     #   jupyter-client
+scipy==1.12.0
+    # via statsmodels
 six==1.16.0
     # via
     #   asttokens
+    #   patsy
     #   python-dateutil
 stack-data==0.6.3
     # via ipython
+statsmodels==0.14.1
+    # via -r requirements.in
 tenacity==8.2.3
     # via plotly
 tornado==6.4

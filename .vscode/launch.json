@@ -6,6 +6,26 @@
     "configurations": [
 
         {
+            "name": "Audi e-tron",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "scrapy",
+            "args": ["runspider",  "-o", "Audi e-tron.csv", "-t", "csv", "-a", "min_price=30000", "-a", "max_price=500000", "-a", "search=Audi e-tron", "downloader/spiders/spider.py"],
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
+            "python": "${workspaceFolder}/.venv/bin/python"
+        },
+        {
+            "name": "Tesla Model 3",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "scrapy",
+            "args": ["runspider",  "-o", "Tesla Model 3.csv", "-t", "csv", "-a", "min_price=30000", "-a", "max_price=500000", "-a", "search=Tesla Model 3", "downloader/spiders/spider.py"],
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
+            "python": "${workspaceFolder}/.venv/bin/python"
+        },
+        {
             "name": "Toyota Corolla Touring Sports",
             "type": "debugpy",
             "request": "launch",
