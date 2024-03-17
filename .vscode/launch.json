@@ -4,7 +4,46 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
+        {
+            "name": "Volkswagen ID.4",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "scrapy",
+            "args": ["runspider",  "-o", "Volkswagen ID.4.csv", "-t", "csv", "-a", "min_price=30000", "-a", "max_price=500000", "-a", "search=Volkswagen ID.4", "downloader/spiders/spider.py"],
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
+            "python": "${workspaceFolder}/.venv/bin/python"
+        },
+        {
+            "name": "Mitsubishi Outlander",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "scrapy",
+            "args": ["runspider",  "-o", "Mitsubishi Outlander.csv", "-t", "csv", "-a", "min_price=30000", "-a", "max_price=500000", "-a", "search=Mitsubishi Outlander", "downloader/spiders/spider.py"],
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
+            "python": "${workspaceFolder}/.venv/bin/python"
+        },
+        {
+            "name": "Hyundai Ioniq",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "scrapy",
+            "args": ["runspider",  "-o", "Hyundai Ioniq.csv", "-t", "csv", "-a", "min_price=30000", "-a", "max_price=500000", "-a", "search=Hyundai Ioniq", "downloader/spiders/spider.py"],
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
+            "python": "${workspaceFolder}/.venv/bin/python"
+        },
+        {
+            "name": "Toyota RAV4",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "scrapy",
+            "args": ["runspider",  "-o", "Toyota RAV4.csv", "-t", "csv", "-a", "min_price=30000", "-a", "max_price=500000", "-a", "search=Toyota RAV4", "downloader/spiders/spider.py"],
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
+            "python": "${workspaceFolder}/.venv/bin/python"
+        },
         {
             "name": "Skoda Octavia",
             "type": "debugpy",
